@@ -1,6 +1,7 @@
 import os
 import time
 from tabulate import tabulate
+from libCrud import buscarAlumno
 """ APLICACIÓN CRUD
 C - CREATE
 R - READ
@@ -17,19 +18,6 @@ alumnos = [
     'email':'cesarmayta@gmail.com',
     'celular':'956290589'}
     ]
-
-############# FUNCIONES ###############
-def buscarAlumno(valorBusqueda,listaAlumnos):
-    indiceAlumno = -1
-    for indice in range(len(listaAlumnos)):
-        alumno = listaAlumnos[indice]
-        for clave,valor in alumno.items():
-            if(clave == "email" and valor == valorBusqueda):
-                indiceAlumno = indice
-                break
-    return indiceAlumno
-
-######################################
 
 opcion = "0"
 while(opcion != "5"):
