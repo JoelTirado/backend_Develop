@@ -18,10 +18,23 @@ alumnos = [
     'celular':'956290589'}
     ]
 
+############# FUNCIONES ###############
+def buscarAlumno(valorBusqueda,listaAlumnos):
+    indiceAlumno = -1
+    for indice in range(len(listaAlumnos)):
+        alumno = listaAlumnos[indice]
+        for clave,valor in alumno.items():
+            if(clave == "email" and valor == valorBusqueda):
+                indiceAlumno = indice
+                break
+    return indiceAlumno
+
+######################################
+
 opcion = "0"
 while(opcion != "5"):
     if(opcion != "0"):
-        time.sleep(2)
+        time.sleep(1)
         os.system("clear")
     print(
     """
@@ -60,10 +73,11 @@ while(opcion != "5"):
         ================================
         """)
     elif(opcion == "2"):
-        columns=['nombre','email','celular']
-        tablaAlumnos=[alumno.values() for alumno in alumnos]
-        print(tabulate(tablaAlumnos,headers=columns,tablefmt='grid'))
-        input("presione un tecla para continuar ...")
+        columnas = ["nombre","email","celular"]
+        tablaAlumnos = [alumno.values() for alumno in alumnos]
+        print(tabulate(tablaAlumnos,headers=columnas,tablefmt="grid"))
+
+        input("presione Enter para continuar ...")
         
     elif(opcion == "3"):
         print(
@@ -73,13 +87,9 @@ while(opcion != "5"):
         ========================
         """)
         valorBusqueda = input("ingrese el email del alumno a actualizar : ")
-        indiceAlumno = -1
-        for indice in range(len(alumnos)):
-            alumno = alumnos[indice]
-            for clave,valor in alumno.items():
-                if(clave == "email" and valor == valorBusqueda):
-                    indiceAlumno = indice
-                    break
+        
+        indiceAlumno = buscarAlumno(valorBusqueda,alumnos)
+        
         if(indiceAlumno == -1):
             print("No se encontro el alumno")
         else:
@@ -110,13 +120,9 @@ while(opcion != "5"):
         ========================
         """)
         valorBusqueda = input("ingrese el email del alumno a eliminar : ")
-        indiceAlumno = -1
-        for indice in range(len(alumnos)):
-            alumno = alumnos[indice]
-            for clave,valor in alumno.items():
-                if(clave == "email" and valor == valorBusqueda):
-                    indiceAlumno = indice
-                    break
+        
+        indiceAlumno = buscarAlumno(valorBusqueda,alumnos)
+
         if(indiceAlumno == -1):
             print("No se encontro el alumno")
         else:
