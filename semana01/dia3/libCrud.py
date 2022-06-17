@@ -57,4 +57,28 @@ def actualizarAlumno(indiceAlumno,alumnos):
 
     alumnos[indiceAlumno] = dictAlumnoEditar
 
+def cargarAlumnos(strAlumnos):
+    alumnos = []
+    lstAlumnos = strAlumnos.splitlines()
+    for l in lstAlumnos:
+        alumnoData = l.split(',')
+        dictAlumno = {
+            'nombre':alumnoData[0],
+            'email':alumnoData[1],
+            'celular':alumnoData[2]
+        }
+        alumnos.append(dictAlumno)
+    return alumnos
+
+def grabarAlumnos(listaAlumnos):
+    strAlumnos = ""
+
+    for dictAlumno in listaAlumnos:
+        for clave,valor in dictAlumno.items():
+            strAlumnos += valor
+            if clave != 'celular':
+                strAlumnos += ','
+            else:
+                strAlumnos += '\n'
+    return strAlumnos
 ######################################

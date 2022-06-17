@@ -1,6 +1,5 @@
 import os
 import time
-from tabulate import tabulate
 """ APLICACIÓN CRUD
 C - CREATE
 R - READ
@@ -60,9 +59,21 @@ while(opcion != "5"):
         ================================
         """)
     elif(opcion == "2"):
-        columns=['nombre','email','celular']
-        tablaAlumnos=[alumno.values() for alumno in alumnos]
-        print(tabulate(tablaAlumnos,headers=columns,tablefmt='grid'))
+        print(
+        """
+        ===========================================================
+                        [2]  LISTADO DE ALUMNOS
+        -----------------------------------------------------------
+        |       NOMBRE        |       EMAIL   |       CELULAR     |
+        -----------------------------------------------------------
+        """)
+        for alumno in alumnos:
+            print("       ",end=' ')
+            for values in alumno.values():
+                print("|    " + values,end='    ')
+            print()
+        print('        ===========================================================')
+        
         input("presione un tecla para continuar ...")
         
     elif(opcion == "3"):

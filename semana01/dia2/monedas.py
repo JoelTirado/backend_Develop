@@ -1,7 +1,3 @@
-#"ejercicio para casa"
-#incorporar un menu de opciones para el programa monedas que tenga 3 opciones 1 - convertir de soles a dolares 2 - convertir de dolares a soles 3 - salir , y que se ejecute con un ciclo while mientras la opción no sea salir, si selecciono la opción salir debe terminar el programa
-#enviar por retos el ejercicios desarrollado
-
 #PROGRAMA PARA CONVERTIR MONEDAS
 #VERSION 1.0
 

@@ -1,4 +1,3 @@
-
 dias = ("lunes","martes","miercoles")
 
 print(dias)
